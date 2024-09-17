@@ -1,3 +1,51 @@
-venv/
+# Python
 __pycache__/
-.vercel
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+.env
+
+# Flask
+instance/
+*.log
+
+# Node
+node_modules/
+package-lock.json
+
+# Vercel
+.vercel/
+
+# Editor & OS specific
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.sln
+*.csproj
+*.nib
+*.plist
+*.iml
+
+# Other
+*.tar.gz
+*.zip
+*.rar
+*.7z
