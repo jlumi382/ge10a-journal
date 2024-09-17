@@ -2,6 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lilita+One&family=Paytone+One&family=Rowdies:wght@300;400;700&display=swap');
 @import url('https://www.nerdfonts.com/assets/css/webfont.css');
 
+@font-face {
+  font-family: 'SymbolsNerdFont';
+  src: url('../fonts/SymbolsNerdFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SymbolsNerdFontMono';
+  src: url('../fonts/SymbolsNerdFontMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the fonts to elements */
+.nf {
+  font-family: 'SymbolsNerdFont', sans-serif;
+}
+
+.nf-mono {
+  font-family: 'SymbolsNerdFontMono', sans-serif;
+}
+
 .inria-sans-light {
   font-family: "Inria Sans", sans-serif;
   font-weight: 300;
