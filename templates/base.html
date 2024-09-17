@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}WPE Journal{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        {% block header %}
+        <!-- Default header content will be inserted here if not overridden -->
+            <div class="header-content">
+                <img src="../static/catto.svg" alt="logo" width="50" height="50"/>
+                <nav class="header-navigation">
+                    <a href="/">Home</a>
+                    <a href="/classroom">Classroom</a>
+                    <a href="/church">Church</a>
+                    <a href="/cultural">Cultural</a>
+                    <a href="/court">Court</a>
+                    <a href="/community">Community</a>
+                </nav>
+            </div>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content will be inserted here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Miguel Luis Jumawan. All Rights Reserved.</p>
+        <p>Contact me at: 
+            <a href="mailto:miguelluisjumawan@su.edu.ph">miguelluisjumawan@su.edu.ph</a> | 
+            <a href="tel:+639632196204">+63 963 219 6204</a>
+        </p>
+        <p><a href="https://yourportfolio.com" target="_blank">View my Portfolio</a></p>
+    </footer>
+</body>
+</html>

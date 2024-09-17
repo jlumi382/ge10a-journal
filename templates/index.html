@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home - WPE Journal{% endblock %}
+
+{% block header %}
+    <div class="header-content">
+        <img src="../static/catto.svg" alt="logo" width="50" height="50"/>
+        <h3>Lumi</h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="main-content">
+        <article class="content-left">
+            <h1>Fulfilling the 5Cs of Silliman Education</h1>
+            <p>
+                Silliman University encourages students to grow not only in competence but also in character, faith, and service. This website is dedicated to showcasing how I’ve engaged in meaningful activities that embody the 5Cs of Silliman education, which are classroom, church, culture, court, and community. Each C represents a venue for holistic development, equipping me for a life of purpose, integrity, and positive impact.
+            </p>
+
+            <!-- Navigation Buttons -->
+            <nav class="navigation">
+                <a href="/classroom"><button><i class="nf-fa-school"></i> Classroom</button></a>
+                <a href="/church"><button><i class="nf-fa-church"></i> Church</button></a>
+                <a href="/cultural"><button><i class="nf-md-party_popper"></i> Cultural</button></a>
+                <a href="/court"><button><i class="nf-md-tennis_ball"></i> Court</button></a>
+                <a href="/community"><button><i class="nf-fa-people_carry_box"></i> Community</button></a>
+            </nav>
+        </article>
+
+        <!-- Image Section -->
+        <figure class="content-right">
+            <img src="../static/school.svg" alt="school"/>
+        </figure>
+    </section>
+{% endblock %}
