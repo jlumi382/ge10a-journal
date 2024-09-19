@@ -1,51 +1,41 @@
-# Python
+# Python bytecode
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
 *.pyc
 *.pyo
 *.pyd
-*.db
-*.sqlite3
 
-# Virtual Environment
+# Virtual environment
 venv/
+env/
+.venv/
+
+# Flask application config
 .env
+config.py
 
-# Flask
+# SQLite database
 instance/
-*.log
+*.db
+*.sqlite
 
-# Node
-node_modules/
-package-lock.json
+# Migrations
+migrations/
 
-# Vercel
-.vercel/
-
-# Editor & OS specific
-*.swp
-*.swo
+# IDE/editor specific files
+.vscode/
+.idea/
 *.sublime-project
 *.sublime-workspace
+
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# IDE files
-.vscode/
-.idea/
-*.suo
-*.user
-*.userossc
-*.sln
-*.csproj
-*.nib
-*.plist
-*.iml
+# Log files
+*.log
 
-# Other
-*.tar.gz
-*.zip
-*.rar
-*.7z
+# Compiled files and build artifacts
+*.egg
+*.egg-info
+dist/
+build/

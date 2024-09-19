@@ -1,21 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
-app = Flask(__name__)
+db = SQLAlchemy()
 
-# Home Route
-@app.route("/")
-def home():
-    return render_template("index.html")
+def create_app():
+    app = Flask(__name__, template_folder="templates/")
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./events.db'
 
-# Category Route
-@app.route("/<category>")
-def category(category):
-    return render_template("category.html", category=category)
+    db.init_app(app)
 
-# Reflection Route
-@app.route("/<category>/<event>")
-def reflection(category, event):
-    return render_template("reflection.html", category=category, event=event)
+    # register routes
+    from routes import register_routes
+    register_routes(app, db)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    migrate = Migrate(app, db)
+
+    return app

@@ -4,5 +4,15 @@
 
 {% block content %}
     <!-- Page-specific content -->
-    <h1>Category: {{ category|capitalize }}</h1>
+    <h1>Category: {{ category.name }}</h1>
+    <ul>
+        {% for event in events %}
+        <li>
+            <a href="{{ url_for('event_page', category=category.name, event=event.name) }}">
+                {{ event.name }} - {{ event.date }} - Points: {{ event.points }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {{ contents|safe }}
 {% endblock %}

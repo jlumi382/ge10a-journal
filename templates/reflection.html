@@ -4,5 +4,10 @@
 
 {% block content %}
     <!-- Page-specific content -->
-    <h1>{{ category|capitalize }} - {{ event|capitalize }}</h1>
+    <h1>{{ event.name }}</h1>
+    <p>Date: {{ event.date }}</p>
+    <p>Points: {{ event.points }}</p>
+    <p>{{ event.reflection }}</p>
+    <a href="{{ url_for('category_page', category=category.name) }}">Back to Category</a>
+
 {% endblock %}
