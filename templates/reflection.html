@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}{{ category|capitalize }} - {{ event|capitalize }} - WPE Journal{% endblock %}
+{% block title %} {{ event.name }} - WPE Journal{% endblock %}
 
 {% block content %}
-    <!-- Page-specific content -->
-    <h1>{{ event.name }}</h1>
-    <p>Date: {{ event.date }}</p>
-    <p>Points: {{ event.points }}</p>
-    <p>{{ event.reflection }}</p>
-    <a href="{{ url_for('category_page', category=category.name) }}">Back to Category</a>
-
+    <div class="container" style="background-image: {{ event.thumbnail }};">
+        <div class="reflection-header">
+            <img src="{{ organizer.logo }}" alt="Organizer Logo" class="organizer-logo">
+            <div class="organizer-info">
+                <div><small>Organizer</small></div>
+                <div class="creator">{{ event.organizer.name }}</div>
+            </div>
+        </div>
+        <h1 class="event-title">{{ event.name }}</h1>
+        <div><small>{{ date }}</small></div>
+        <div><small>{{ event.venue }}</small></div>
+        <div><small>{{ event.points }} pt/s</small></div>
+    </div>
+    <div>
+        {{ event.reflection | safe }}
+    </div>
+    <div class="proof">
+        {{ event.proof | safe }}
+    </div>
 {% endblock %}

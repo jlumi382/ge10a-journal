@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}{{ category|capitalize }} - WPE Journal{% endblock %}
+{% block title %}{{ category.name }} - WPE Journal{% endblock %}
 
 {% block content %}
-    <!-- Page-specific content -->
-    <h1>Category: {{ category.name }}</h1>
-    <ul>
+    <h1>{{ category.name }}</h1>
+    <div class="event-thumbnails">
         {% for event in events %}
-        <li>
-            <a href="{{ url_for('event_page', category=category.name, event=event.name) }}">
-                {{ event.name }} - {{ event.date }} - Points: {{ event.points }}
+        <div class="event-thumbnail">
+            <a href="{{ url_for('event_page', category=category.short_name, event=event.short_name) }}">
+                <img src="{{ event.thumbnail }}" alt="{{ event.name }}" class="thumbnail-image">
+                <div class="thumbnail-info">
+                    <h3 class="event-title">{{ event.name }}</h3>
+                    <div><small class="event-organizer">{{ event.organizer.name }}</small></div>
+                    <div><small class="event-date">{{ date }}</small></div>
+                    <div><small class="event-venue">{{ event.venue }}</small></div>
+                    <div><small class="event-points">{{ event.points }} pt/s</small></div>
+                </div>
             </a>
-        </li>
+        </div>
         {% endfor %}
-    </ul>
-    {{ contents|safe }}
+    </div>
 {% endblock %}
+
