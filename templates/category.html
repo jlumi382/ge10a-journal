@@ -4,17 +4,17 @@
 
 {% block content %}
     <h1>{{ category.name }}</h1>
-    <div class="event-thumbnails">
+    <div>
         {% for event in events %}
-        <div class="event-thumbnail">
-            <a href="{{ url_for('event_page', category=category.short_name, event=event.short_name) }}">
-                <img src="{{ event.thumbnail }}" alt="{{ event.name }}" class="thumbnail-image">
-                <div class="thumbnail-info">
-                    <h3 class="event-title">{{ event.name }}</h3>
-                    <div><small class="event-organizer">{{ event.organizer.name }}</small></div>
-                    <div><small class="event-date">{{ date }}</small></div>
-                    <div><small class="event-venue">{{ event.venue }}</small></div>
-                    <div><small class="event-points">{{ event.points }} pt/s</small></div>
+        <div>
+            <a href="{{ url_for('event_page', category=category.short_name, event_id=event.id) }}">
+            <img src="{{ url_for('static', filename='uploads/thumbnails/' + event.thumbnail) }}" alt="Thumbnail for {{ event.name }}">
+                <div>
+                    <h3>{{ event.name }}</h3>
+                    <div><small>{{ event.organizer.name }}</small></div>
+                    <div><small>{{ event.date }}</small></div>
+                    <div><small>{{ event.venue }}</small></div>
+                    <div><small>{{ event.points }} pt/s</small></div>
                 </div>
             </a>
         </div>

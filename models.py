@@ -19,11 +19,12 @@ class Event(db.Model):
     category = db.relationship('Category', backref=db.backref('events', lazy=True))
     organizer_id = db.Column(db.Integer, db.ForeignKey('organizers.id'), nullable=False)
     organizer = db.relationship('Organizer', backref=db.backref('events'), lazy=True)
-    thumbnail = db.Column(db.String(255), nullable=False)
-    proof = db.Column(db.Text, nullable=False)
+    thumbnail = db.Column(db.String(100), nullable=False)
+    proof = db.Column(db.String(100), nullable=False)
 
 class Organizer(db.Model):
     __tablename__ = 'organizers'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    logo = db.Column(db.String(255), nullable=False)
+    short_name = db.Column(db.String(25), nullable=False)
+    logo = db.Column(db.String(100), nullable=False)

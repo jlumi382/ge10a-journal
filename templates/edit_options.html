@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('editable_events') }}"><button>Edit Event</button></a>
+<a href="{{ url_for('editable_categories') }}"><button>Edit Category</button></a>
+<a href="{{ url_for('editable_organizers') }}"><button>Edit Organizer</button></a>
+{% endblock %}

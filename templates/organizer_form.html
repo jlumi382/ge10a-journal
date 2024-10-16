@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="{{ url_for('add_organizer') }}" enctype="multipart/form-data">
+    <label for="name">Organizer Name:</label>
+    <input type="text" id="name" name="name" value="{{ organizer.name if organizer else '' }}" required>
+
+    <label for="short_name">Short Name:</label>
+    <input type="text" id="short_name" name="short_name" value="{{ organizer.short_name if organizer else '' }}" required>
+
+    <label for="logo">Logo:</label>
+    <input type="file" id="logo" name="logo" accept=".png, .jpg, .jpeg, .gif" required>
+    
+    {% if error %}
+    <div style="color: red;">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <input type="submit" value="Add Organizer">
+</form>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('add_event') }}">
+    <label for="name">Event Name:</label>
+    <input type="text" id="name" name="name" value="{{ event.name if event else '' }}" required>
+
+    <label for="short_name">Short Name:</label>
+    <input type="text" id="short_name" name="short_name" value="{{ event.short_name if event else '' }}" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="{{ event.date.strftime('%Y-%m-%d') if event else '' }}" required>
+
+    <label for="venue">Venue:</label>
+    <input type="text" id="venue" name="venue" value="{{ event.venue if event else '' }}" required>
+
+    <label for="points">Points:</label>
+    <input type="number" id="points" name="points" value="{{ event.points if event else '' }}" min="1" max="4" required>
+
+    <label for="reflection">Reflection:</label>
+    <div id="editor-container">{{ event.reflection|safe if event else '' }}</div>
+
+    <input type="hidden" id="reflection" name="reflection" value="{{ event.reflection if event else '' }}" required>
+
+
+    <label for="category_id">Category:</label>
+    <select id="category_id" name="category_id" required>
+        <option value="" disabled {{ 'selected' if not event else '' }}>Select a category</option>
+        {% for category in categories %}
+        <option value="{{ category.id }}" {% if event and event.category_id == category.id %}selected{% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="organizer_id">Organizer:</label>
+    <select id="organizer_id" name="organizer_id" required>
+        <option value="" disabled {{ 'selected' if not event else '' }}>Select an organizer</option>
+        {% for organizer in organizers %}
+        <option value="{{ organizer.id }}" {% if event and event.organizer_id == organizer.id %}selected{% endif %}>{{ organizer.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="thumbnail">Thumbnail:</label>
+    <input type="file" id="thumbnail" name="thumbnail" accept=".png, .jpg, .jpeg, .gif" {% if not event %}required{% endif %}>
+
+    <label for="proof">Proof:</label>
+    <input type="file" id="proof" name="proof" accept=".png, .jpg, .jpeg, .gif" {% if not event %}required{% endif %}>
+
+    <input type="submit" value="{{ 'Update Event' if event else 'Create Event' }}">
+</form>
+
+<a href="{{ url_for('add_category') }}"><button>Add New Category</button></a>
+
+<a href="{{ url_for('add_organizer') }}"><button>Add New Organizer</button></a>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="{{ url_for('static', filename='scripts/quill.js') }}"></script>
+{% endblock %}

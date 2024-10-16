@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('add_event') }}"><button>Add Event</button></a>
+<a href="{{ url_for('add_category') }}"><button>Add Category</button></a>
+<a href="{{ url_for('add_organizer') }}"><button>Add Organizer</button></a>
+{% endblock %}
